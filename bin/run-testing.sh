@@ -10,6 +10,6 @@ cd docker-compose-files
 
 run_testing up -d
 
-docker logs tictactoeapi_tictactoe-tests_1
+docker logs -f dockercomposefiles_tictactoe-tests_1
 
 run_testing down --remove-orphans

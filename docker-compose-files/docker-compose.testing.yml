@@ -10,4 +10,4 @@ services:
       - ../.env
     depends_on:
       - nginx
-    command: sh -c "./vendor/bin/phpunit & ./vendor/bin/behat"
+    command: sh -c "./vendor/bin/phpunit && ./vendor/bin/behat"

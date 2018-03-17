@@ -11,8 +11,8 @@
 |
 */
 $router->group(['prefix' => '/api/v1/'], function () use ($router) {
-	$router->post('healthcheck', function () use ($router) {
-	    return $router->app->version();
+	$router->get('healthcheck', function () use ($router) {
+	    return 'health';
 	});
 
 	$router->post('bots/{id}/play', 'BotController@getNextPlay');

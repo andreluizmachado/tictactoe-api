@@ -3,3 +3,10 @@
 default:
     autoload:
         '': "%paths.base%/tests/integration/features/bootstrap"
+    suites:
+        bot_features:
+            paths:    [ "%paths.base%/tests/integration/features/bot" ]
+            contexts: [ FeatureContext ]
+        board_features:
+            paths:    [ "%paths.base%/tests/integration/features/board" ]
+            contexts: [ FeatureContext ]
