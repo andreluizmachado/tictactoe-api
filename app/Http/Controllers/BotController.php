@@ -6,6 +6,8 @@ use App\Service\Bot;
 use Psr\Http\Message\ServerRequestInterface;
 use AndreLuizMachado\TicTacToe\Engine\Bot as BotPlayer;
 use Zend\Diactoros\Response\JsonResponse;
+use Zend\Diactoros\Response\EmptyResponse;
+use Symfony\Component\HttpKernel\Exception\HttpResponseException;
 
 class BotController extends Controller
 {
@@ -32,6 +34,10 @@ class BotController extends Controller
         );
 
         $play = $this->bot->getNextPlay($playerOne);
+
+        if (is_null($play)) {
+            return new EmptyResponse(404);            
+        }
 
         return new JsonResponse($play, 200);
     }

@@ -4,7 +4,6 @@ namespace App\Exceptions;
 
 use Exception;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Http\Response;
 
 class Handler extends ExceptionHandler
@@ -14,9 +13,7 @@ class Handler extends ExceptionHandler
      *
      * @var array
      */
-    protected $dontReport = [
-        HttpException::class,
-    ];
+    protected $dontReport = [];
 
     /**
      * Report or log an exception.
