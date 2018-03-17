@@ -37,6 +37,6 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        return new Response('{ "error": "Ops! There is something wrong, please try again!"}', 500);
+        return new Response('{"error": "Ops! There is something wrong, please try again!"}', 500);
     }
 }
