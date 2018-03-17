@@ -4,10 +4,10 @@ services:
   tictactoe-tests:
     image: andreluizmachado/tictactoe-api
     volumes:
-      - .:/var/www/html
-      - ./image/php-fpm/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf
+      - ../:/var/www/html
+      - ../image/php-fpm/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf
     env_file:
-      - .env
+      - ../.env
     depends_on:
       - nginx
     command: sh -c "./vendor/bin/phpunit & ./vendor/bin/behat"
