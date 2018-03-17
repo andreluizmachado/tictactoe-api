@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Service\Board;
 use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use Zend\Diactoros\Response\JsonResponse;
 use AndreLuizMachado\TicTacToe\Engine\Player;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class BoardController extends Controller
 {
@@ -23,8 +22,7 @@ class BoardController extends Controller
     }
 
     public function checkBoard(
-        ServerRequestInterface $request,
-        ResponseInterface $response
+        ServerRequestInterface $request
     ) {
         $payload = $request->getParsedBody();
 
@@ -40,15 +38,11 @@ class BoardController extends Controller
 
         $game = $this->board->checkBoard($playerOne, $playerTwo);
         
-        $response->getBody()->write(
-            json_encode(
-                [
-                    'status' => $game->getStatus(),
-                    'winner' => $playerOne->isWinner()? 'x': $playerTwo->isWinner()? 'o': ''
-                ]
-            )
+        return new JsonResponse(
+            [
+                'status' => $game->getStatus(),
+                'winner' => $playerOne->isWinner()? 'x': $playerTwo->isWinner()? 'o': ''
+            ]
         );
-
-        return $response;
     }
 }

@@ -15,9 +15,7 @@ $router->group(['prefix' => '/api/v1/'], function () use ($router) {
 	    return $router->app->version();
 	});
 
-	$router->post('bots/{id}/play', function () use ($router) {
-	    return $router->app->version();
-	});
+	$router->post('bots/{id}/play', 'BotController@getNextPlay');
 
 	$router->post('boards/', 'BoardController@checkBoard');
 });
