@@ -1,0 +1,14 @@
+# Creating container MySQL
+version: "3"
+services: 
+  tictactoe-tests:
+    image: andreluizmachado/tictactoe-api
+    volumes:
+      - .:/var/www/html
+      - ./image/php-fpm/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf
+    env_file:
+      - .env
+    depends_on:
+      - tictactoe-api
+    command: sh -c "./vendor/bin/phpunit && echo 'test'"
+

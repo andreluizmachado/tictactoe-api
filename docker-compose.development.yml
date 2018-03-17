@@ -1,0 +1,9 @@
+# Creating container MySQL
+version: "3"
+services: 
+  tictactoe-api:
+    volumes:
+      - .:/var/www/html
+      - ./image/php-fpm/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf
+    env_file:
+      - .env
