@@ -7,3 +7,9 @@ services:
       - ./image/php-fpm/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf
     env_file:
       - .env
+  composer:
+    image: composer
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+    command: composer install --no-scripts --ignore-platform-reqs

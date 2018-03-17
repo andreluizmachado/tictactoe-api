@@ -9,6 +9,6 @@ services:
     env_file:
       - .env
     depends_on:
-      - tictactoe-api
-    command: sh -c "./vendor/bin/phpunit && echo 'test'"
+      - nginx
+    command: sh -c "./vendor/bin/phpunit & ./vendor/bin/behat"
 

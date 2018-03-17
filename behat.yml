@@ -1,0 +1,5 @@
+# behat.yml
+
+default:
+    autoload:
+        '': "%paths.base%/tests/integration/features/bootstrap"
