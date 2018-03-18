@@ -8,7 +8,7 @@ function run_testing {
 
 cd docker-compose-files
 
-run_testing up -d
+run_testing up --build -d
 
 docker logs -f dockercomposefiles_tictactoe-tests_1
 

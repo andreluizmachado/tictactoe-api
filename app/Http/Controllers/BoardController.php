@@ -6,6 +6,8 @@ use App\Service\Board;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Diactoros\Response\JsonResponse;
 use AndreLuizMachado\TicTacToe\Engine\Player;
+use AndreLuizMachado\TicTacToe\Engine\Validation\InvalidPositionException;
+use AndreLuizMachado\TicTacToe\Engine\Validation\PlayRepeatedlyException;
 
 class BoardController extends Controller
 {
@@ -41,7 +43,19 @@ class BoardController extends Controller
             $payload['o']['nextPlay']
         );
 
-        $game = $this->board->checkBoard($playerOne, $playerTwo);
+        try {
+            $game = $this->board->checkBoard($playerOne, $playerTwo);
+        } catch (PlayRepeatedlyException $e) {
+            return new JsonResponse(
+                ['reason' => 'Error It\'s not possible repeat moves'],
+                422
+            );
+        } catch (InvalidPositionException $e) {
+            return new JsonResponse(
+                ['reason' => 'Invalid game position, use only 1 or 2 for lines ans columns'],
+                422
+            );
+        }
 
         $winner = '';
 
