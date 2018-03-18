@@ -13,9 +13,9 @@ class BoardTest extends TestCase
      */
     public function testCheckBoard()
     {
-    	$mockPlayer = $this
-    		->getMockBuilder(PlayerInterface::class)
-    		->getMock(); 
+        $mockPlayer = $this
+            ->getMockBuilder(PlayerInterface::class)
+            ->getMock();
         $board = new Board();
 
         $game = $board->checkBoard($mockPlayer, $mockPlayer);

@@ -9,7 +9,7 @@ class Bot
 {
     public function getNextPlay(PlayerInterface $bot):? Array
     {
-    	$boardEngine = new BotEngine($bot->getPreviousPlays()??[]);
-    	return $boardEngine->getNextPlay();
+        $boardEngine = new BotEngine($bot->getPreviousPlays()??[]);
+        return $boardEngine->getNextPlay();
     }
 }

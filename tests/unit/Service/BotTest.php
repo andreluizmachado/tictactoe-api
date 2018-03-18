@@ -12,9 +12,9 @@ class BotTest extends TestCase
      */
     public function testGetNextPlay()
     {
-    	$mockPlayer = $this
-    		->getMockBuilder(PlayerInterface::class)
-    		->getMock(); 
+        $mockPlayer = $this
+            ->getMockBuilder(PlayerInterface::class)
+            ->getMock();
         $bot = new Bot();
 
         $game = $bot->getNextPlay($mockPlayer);

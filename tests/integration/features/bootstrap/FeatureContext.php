@@ -8,34 +8,34 @@ use PHPUnit\Framework\Assert;
 
 class FeatureContext implements Context
 {
-	const BASE_PATH = 'http://nginx/api/v1/';
+    const BASE_PATH = 'http://nginx/api/v1/';
 
-	private $client;
-	private $payload;
-	private $response;
+    private $client;
+    private $payload;
+    private $response;
 
-	/** @BeforeScenario */
-	public function setUp()
-	{
-		$this->client = new GuzzleHttp\Client(
-			[
-				'base_uri' => self::BASE_PATH,
-				'connect_timeout' => 2,
-				'timemout' => 2,
-				'http_errors' => false,
-				'headers' => [
-					'content-type' => 'application/json'
-				]
-			]
-		);
-	}
+    /** @BeforeScenario */
+    public function setUp()
+    {
+        $this->client = new GuzzleHttp\Client(
+            [
+                'base_uri' => self::BASE_PATH,
+                'connect_timeout' => 2,
+                'timemout' => 2,
+                'http_errors' => false,
+                'headers' => [
+                    'content-type' => 'application/json'
+                ]
+            ]
+        );
+    }
 
     /**
      * @Given I have the payload:
      */
     public function iHaveThePayload(PyStringNode $payload)
     {
-    	$this->payload = ['json' => json_decode($payload, true)];
+        $this->payload = ['json' => json_decode($payload, true)];
     }
 
     /**
@@ -44,9 +44,9 @@ class FeatureContext implements Context
     public function iSendARequestToResource($method, $resource)
     {
         $this->response = $this->client->request(
-        	$method,
-        	$resource,
-        	$this->payload
+            $method,
+            $resource,
+            $this->payload
         );
     }
 
@@ -55,7 +55,7 @@ class FeatureContext implements Context
      */
     public function theResponseStatusCodeShouldBe($statusCode)
     {
-    	Assert::assertEquals($this->response->getStatusCode(), $statusCode);
+        Assert::assertEquals($this->response->getStatusCode(), $statusCode);
     }
 
     /**
@@ -63,9 +63,9 @@ class FeatureContext implements Context
      */
     public function theResponseBodyShouldBe(PyStringNode $body)
     {
-    	Assert::assertEquals(
-    		json_decode($this->response->getBody()->getContents()),
-    		json_decode($body)
-    	);
+        Assert::assertEquals(
+            json_decode($this->response->getBody()->getContents()),
+            json_decode($body)
+        );
     }
 }

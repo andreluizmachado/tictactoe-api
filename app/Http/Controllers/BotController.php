@@ -36,7 +36,7 @@ class BotController extends Controller
         $play = $this->bot->getNextPlay($playerOne);
 
         if (is_null($play)) {
-            return new EmptyResponse(404);            
+            return new EmptyResponse(404);
         }
 
         return new JsonResponse($play, 200);

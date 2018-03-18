@@ -10,7 +10,7 @@ class Board
 {
     public function checkBoard(PlayerInterface $player1, PlayerInterface $player2): Game
     {
-    	$boardEngine = new BoardEngine($player1, $player2);
-    	return $boardEngine->checkGame();
+        $boardEngine = new BoardEngine($player1, $player2);
+        return $boardEngine->checkGame();
     }
 }
