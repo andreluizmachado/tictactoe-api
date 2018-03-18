@@ -37,10 +37,21 @@ class BoardController extends Controller
         );
 
         $game = $this->board->checkBoard($playerOne, $playerTwo);
+
+        $winner = '';
+
+        if ($playerOne->isWinner()) {
+            $winner = 'x';
+        }
+
+        if ($playerTwo->isWinner()) {
+            $winner = 'o';
+        }
+
         return new JsonResponse(
             [
                 'status' => $game->getStatus(),
-                'winner' => $playerOne->isWinner()? 'x': $playerTwo->isWinner()? '0': ''
+                'winner' => $winner
             ],
             200
         );
