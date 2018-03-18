@@ -2,7 +2,7 @@
 version: "3"
 services: 
   tictactoe-tests:
-    image: andreluizmachado/tictactoe-api
+    image: andreluizkbca/tictactoe-api
     volumes:
       - ../:/var/www/html
       - ../image/php-fpm/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf
