@@ -13,7 +13,7 @@ class BoardController extends Controller
 
     /**
      * Create a new controller instance.
-     *
+     * @param Board $board the board service
      * @return void
      */
     public function __construct(Board $board)
@@ -21,6 +21,11 @@ class BoardController extends Controller
         $this->board = $board;
     }
 
+    /**
+     * check the game status in the board
+     * @param ServerRequestInterface $request the http request
+     * @return JsonResponse
+     */
     public function checkBoard(
         ServerRequestInterface $request
     ) {

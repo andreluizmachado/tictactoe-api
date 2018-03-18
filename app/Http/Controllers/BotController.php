@@ -15,7 +15,7 @@ class BotController extends Controller
 
     /**
      * Create a new controller instance.
-     *
+     * @param Bot $bot the bot service
      * @return void
      */
     public function __construct(Bot $bot)
@@ -23,6 +23,11 @@ class BotController extends Controller
         $this->bot = $bot;
     }
 
+    /**
+     * get the next bot move
+     * @param ServerRequestInterface $request the http request
+     * @return JsonResponse
+     */
     public function getNextPlay(
         ServerRequestInterface $request,
         string $id

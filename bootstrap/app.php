@@ -39,6 +39,9 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+/**
+ * register the cors middleware
+ */
 $app->middleware(
     [
         Vluzrmos\LumenCors\CorsMiddleware::class
