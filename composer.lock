@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/andreluizmachado/tictactoe-library.git",
-                "reference": "cb444562be9511b62f5557ebe44b4ccaf4f3c537"
+                "reference": "b99c3c58543e53c6b096a445dccb72b2960a2f5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andreluizmachado/tictactoe-library/zipball/cb444562be9511b62f5557ebe44b4ccaf4f3c537",
-                "reference": "cb444562be9511b62f5557ebe44b4ccaf4f3c537",
+                "url": "https://api.github.com/repos/andreluizmachado/tictactoe-library/zipball/b99c3c58543e53c6b096a445dccb72b2960a2f5d",
+                "reference": "b99c3c58543e53c6b096a445dccb72b2960a2f5d",
                 "shasum": ""
             },
             "require": {
@@ -40,7 +40,7 @@
                 }
             ],
             "description": "The tic tac toe engine",
-            "time": "2018-03-18T18:34:22+00:00"
+            "time": "2018-03-19T12:49:39+00:00"
         },
         {
             "name": "doctrine/inflector",

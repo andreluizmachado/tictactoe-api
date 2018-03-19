@@ -22,6 +22,7 @@ cd tictactoe-api
 ```
 
 ```
+chmod -R 0777 storage/ #only in development env
 cp .env.example .env
 ```
 
@@ -37,6 +38,7 @@ Resource to take the next bot play based on the given board.
 Request:
 ```shell
 POST http://localhost:8080/api/v1/bots/x/play
+Header Content-Type: application/json
 
 Content-Type: application/json
 {
@@ -65,6 +67,7 @@ Resource to take the game status in the board.
 Request:
 ```shell
 POST http://localhost:8080/api/v1/boards
+Header Content-Type: application/json
 
 Content-Type: application/json
 {
