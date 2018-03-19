@@ -22,7 +22,7 @@ class BotControllerTest extends TestCase
                 "nextPlay"=> null
             ]
         )
-        ->seeJson(["column" => 1, "line" => 2]);
+        ->seeJson(["column" => 2, "line" => 1]);
     }
 
     /**
